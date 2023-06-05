@@ -1,0 +1,8 @@
+version: '3'
+
+tasks:
+  geth:
+    dir: ./build/bin
+    cmds:
+      - ./geth --datadir ./data --nodiscover --verbosity 2  --http --http.addr localhost --http.port 8545 --mine --miner.threads 1 --miner.etherbase 0x0000000000000000000000000000000000000000
+    silent: true
