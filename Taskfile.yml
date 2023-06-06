@@ -1,8 +1,9 @@
 version: '3'
 
 tasks:
-  geth:
-    dir: ./build/bin
+  build:
+    envs:
+      - GO111MODULE=on
     cmds:
-      - ./geth --datadir ./data --nodiscover --verbosity 2  --http --http.addr localhost --http.port 8545 --mine --miner.threads 1 --miner.etherbase 0x0000000000000000000000000000000000000000
-    silent: true
+      - go run build/ci.go install ./cmd/geth
+      - cp build/bin/geth ./deploy/node1
