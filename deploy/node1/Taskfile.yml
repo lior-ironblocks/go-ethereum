@@ -9,4 +9,8 @@ tasks:
       - ./geth attach --datadir data
   geth:
     cmds:
-      - ./geth --datadir data --nodiscover   --http --http.addr localhost --http.port 8545 --unlock 0x1Cb750eddc261055589D9fE2DbF75cE013Df2Aa9 --mine --miner.etherbase=0x1Cb750eddc261055589D9fE2DbF75cE013Df2Aa9 --allow-insecure-unlock --password password
+      - ./geth --datadir data --nodiscover   --http --http.addr localhost --http.port 8546 --unlock 0x1Cb750eddc261055589D9fE2DbF75cE013Df2Aa9 --mine --miner.etherbase=0x1Cb750eddc261055589D9fE2DbF75cE013Df2Aa9 --allow-insecure-unlock --password password
+  geth2:
+    dir: ./build/bin
+    cmds:
+      - ./geth --datadir ../../deploy/node1/data --nodiscover   --http --http.addr localhost --http.port 8546 --unlock 0x1Cb750eddc261055589D9fE2DbF75cE013Df2Aa9 --mine --miner.etherbase=0x1Cb750eddc261055589D9fE2DbF75cE013Df2Aa9 --allow-insecure-unlock --password password
