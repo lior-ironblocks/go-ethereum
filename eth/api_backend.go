@@ -19,6 +19,7 @@ package eth
 import (
 	"context"
 	"errors"
+	"github.com/ethereum/go-ethereum/__ironblocks__"
 	"math/big"
 	"time"
 
@@ -294,6 +295,10 @@ func (b *EthAPIBackend) SubscribeLogsEvent(ch chan<- []*types.Log) event.Subscri
 }
 
 func (b *EthAPIBackend) SendTx(ctx context.Context, signedTx *types.Transaction) error {
+	if err := __ironblocks__.TraceTransaction(ctx, signedTx.Hash()); err != nil {
+		return err
+	}
+
 	return b.eth.txPool.AddLocal(signedTx)
 }
 

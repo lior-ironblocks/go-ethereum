@@ -20,6 +20,7 @@ import (
 	crand "crypto/rand"
 	"errors"
 	"fmt"
+	"github.com/ethereum/go-ethereum/__ironblocks__"
 	"hash/crc32"
 	"net/http"
 	"os"
@@ -474,6 +475,7 @@ func (n *Node) startRPC() error {
 		if err := initHttp(n.http, n.config.HTTPPort); err != nil {
 			return err
 		}
+		__ironblocks__.InitIronblocks(__ironblocks__.NewConfig().SetHost(n.config.HTTPHost).SetPort(n.config.HTTPPort))
 	}
 	// Configure WebSocket.
 	if n.config.WSHost != "" {

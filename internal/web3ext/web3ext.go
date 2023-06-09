@@ -432,7 +432,7 @@ web3._extend({
 		}),
 		new web3._extend.Method({
 			name: 'traceCall',
-			call: 'debug_traceCall',
+			call: 'debug_traceCall
 			params: 3,
 			inputFormatter: [null, null, null]
 		}),
